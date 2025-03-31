@@ -1,6 +1,8 @@
 package array;
 
-public class ArrayStuffs {
+import java.util.Arrays;
+
+public class ArrayPrograms {
     //Print Subarrays
     public static void subArray(int arr[]){
         for(int i=0 ; i< arr.length;i++){
@@ -35,9 +37,27 @@ public class ArrayStuffs {
         return maxSum;
     }
 
+    //Array as Function Parameter ( call by Reference )
+    public static void updateArray(int[] marks , int nonChangable){
+        nonChangable = 10 ;    // Variables are Stored by value not reference so this change will be only on the Func not on the original passed variable
+        for (int i=0;i<marks.length;i++){
+            marks[i] += 1 ;
+        }
+    }
+
     public static void main(String[] args) {
-        int arr[] = {2,4,6,8,10};
-//        int arr[] = {1,-2,6,-1,3};
-        System.out.println("Max Sum : " + subArraySum(arr));
+        //int arr[] = {2,4,6,8,10};
+        //int arr[] = {1,-2,6,-1,3};
+        //System.out.println("Max Sum : " + subArraySum(arr));
+
+        int[] marks = {20,50,70,80};
+        int nonChangable = 5;
+        updateArray(marks,nonChangable);
+
+        System.out.println("Array : " + Arrays.toString(marks));
+        System.out.println("Non Changable Value : " + nonChangable);
+
+
+
     }
 }

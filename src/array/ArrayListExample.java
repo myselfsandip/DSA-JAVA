@@ -1,11 +1,8 @@
 package array;
 
-import java.util.ArrayList;
-
 public class ArrayListExample {
     public static void main(String[] args) {
-        //Syntax
-        ArrayList<Integer> list = new ArrayList<Integer>(2);
+        java.util.ArrayList<Integer> list = new java.util.ArrayList<>(2);
 
         list.add(55);
         list.add(67);
@@ -19,12 +16,10 @@ public class ArrayListExample {
         list.add(55);
         list.add(55);
 
-        System.out.println(list.size());
+        System.out.println(list.size()); // Output the size of the list
 
-        list.set(0,22);
-        list.remove(2);
+        list.set(0, 22); // Set first element to 22
+        list.remove(2);  // Remove the element at index 2
 
-
-        System.out.println(list);
     }
 }
