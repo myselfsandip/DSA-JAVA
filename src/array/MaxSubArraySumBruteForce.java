@@ -3,9 +3,12 @@ package array;
 public class MaxSubArraySumBruteForce {
     public static void main(String[] args) {
         int[] numbers = {1,-2,6,-1,3};
-        printMaxSubArraySum(numbers);
+        //printMaxSubArraySum(numbers);
+        OptimizedBruteForce(numbers);
     }
 
+
+    //Time Complexity : When there is 3 Nested Loops which goes to n , then the Time Complexity will be - O(n³)
     public static void printMaxSubArraySum(int[] arr){
         int currSum = 0 ;
         int maxSum = Integer.MIN_VALUE;
@@ -30,5 +33,22 @@ public class MaxSubArraySumBruteForce {
         System.out.println("Total Subarray are : " + count);
     }
 
-    //Time Complexity : When there is 3 Nested Loops which goes to n , then the Time Complexity will be - O(n³)
+
+
+    //Time Complexity : O(n2)
+    public static void OptimizedBruteForce(int[] arr){
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int start=0; start<arr.length;start++){
+            int currentSum = 0;
+            for (int end=start; end<arr.length;end++){
+                currentSum += arr[end];
+
+                if(currentSum > maxSum){
+                    maxSum = currentSum;
+                }
+            }
+        }
+        System.out.println("MAX SUBARRAY SUM IS : " + maxSum);
+    }
 }

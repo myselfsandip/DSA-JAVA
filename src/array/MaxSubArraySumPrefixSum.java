@@ -6,34 +6,32 @@ public class MaxSubArraySumPrefixSum {
         printMaxSubArraySumPrefixSum(numbers);
     }
 
-    public static void printMaxSubArraySumPrefixSum(int[] arr) {
-        int[] prefix = new int[arr.length];
+    public static void printMaxSubArraySumPrefixSum(int[] numbers) {
         int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0 ;
 
-        // Calculate prefix sum array
-        prefix[0] = arr[0];
-        for (int i = 1; i < prefix.length; i++) {
-            prefix[i] = prefix[i - 1] + arr[i];
+        //Generate Prefix Sum Array
+        int[] prefixArray = new int[numbers.length];
+        prefixArray[0] = numbers[0];
+        for (int i = 1; i < prefixArray.length; i++) {
+            prefixArray[i] = numbers[i] + prefixArray[i-1];
         }
 
-        // Finding max subarray sum
-        for (int i = 0; i < arr.length; i++) {
-            int start = i;
-            for (int j = i; j < arr.length; j++) {
-                int end = j;
 
-                int currSum = (start == 0) ? prefix[end] : (prefix[end] - prefix[start - 1]);
+        //Generate Max Subarray Prefix Sum
+        for(int start = 0; start< numbers.length ; start++){
+            for (int end = start ; end< numbers.length ; end++){
+                currentSum = start == 0 ? prefixArray[end] :  prefixArray[end] - prefixArray[start - 1];
 
-                System.out.println("currSum: " + currSum);
-
-                if (currSum > maxSum) {
-                    maxSum = currSum;
+                if(maxSum < currentSum){
+                    maxSum = currentSum;
                 }
             }
         }
 
-        System.out.println("Max Sum is = " + maxSum);
+        System.out.println("THE MAX SUM IS : " + maxSum);
+
+
+
     }
-
-
 }
