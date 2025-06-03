@@ -31,7 +31,5 @@ public class MaxSubArraySumPrefixSum {
 
         System.out.println("THE MAX SUM IS : " + maxSum);
 
-
-
     }
 }
