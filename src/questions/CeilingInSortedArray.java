@@ -17,8 +17,8 @@ public class CeilingInSortedArray {
                 result =  arr[mid];
             } else if (target > arr[mid]) {
                 start = mid + 1 ;
-            } else{
-                result = arr[mid]; // Its stored Based on - It might be the possible answer
+                result = arr[start];
+            } else if(target < arr[mid]){
                 end = mid - 1;
             }
         }
